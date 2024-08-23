@@ -197,6 +197,7 @@ def get_accelerate_model(
         model.config.image_grid_pinpoints = args.image_grid_pinpoints
 
         vision_tower = model.get_vision_tower()
+        print("llavallamaforcasualLM vision_tower loaded ?", vision_tower.is_loaded)
         if not vision_tower.is_loaded:
             vision_tower.load_model()
         vision_tower.to(device="cuda", dtype=torch.bfloat16)
